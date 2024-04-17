@@ -7,9 +7,10 @@ type NumberRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enu
 type T = NumberRange<1, 11>
 
 export interface IShip {
+  id: string
   name: string
   title: string | null
-  description: string | null
+  description: 'L10nField'
   icons: {
     small: string
     large: string

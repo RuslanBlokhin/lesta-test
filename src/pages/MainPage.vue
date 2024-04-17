@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { useShipsStore } from '../stores/ships'
-const store = useShipsStore()
-
-onMounted(() => {
-  store.fetchAllShips()
-
-  console.log(store.getShips)
-})
+import ShipList from '../components/ships/ShipList.vue'
 </script>
 
 <template>
-  <div></div>
+  <ShipList />
 </template>
 
 <style></style>
