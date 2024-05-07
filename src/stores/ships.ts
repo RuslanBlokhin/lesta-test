@@ -18,6 +18,8 @@ export const useShipsStore = defineStore('ships', () => {
     try {
       const data = await getAllShips()
       ships.value = data
+      console.log(ships.value.length)
+
       return { data, error: null }
     } catch (error) {
       return { data: null, message: getErrorMessage(error) }

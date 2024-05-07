@@ -1,35 +1,35 @@
 <script setup lang="ts">
 import { IShip } from '../../models/ship.model'
-const props = defineProps<{
+defineProps<{
   ship: IShip
 }>()
-console.log(props.ship)
 </script>
 
 <template>
   <li class="ship-item">
-    <div class="ship-item__image-wrapper">
-      <img :src="ship.icons.medium" alt="ship-image" class="ship-item__image" />
+    <div class="ship-item__wrapper">
+      <div class="ship-item__image-wrapper">
+        <img :src="ship.icons.medium" alt="ship-image" class="ship-item__image" />
+      </div>
+      <div class="ship-item__info">
+        <h3 class="ship-item__info-params-value name">{{ ship.title }}</h3>
+        <div class="ship-item__info-row">
+          <h4 class="ship-item__info-params-name">Класс:</h4>
+          <div class="ship-item__info-params-value">{{ ship.type.title }}</div>
+        </div>
+        <div class="ship-item__info-row">
+          <h4 class="ship-item__info-params-name">Нация:</h4>
+          <div class="ship-item__info-params-value">{{ ship.nation.title }}</div>
+        </div>
+        <div class="ship-item__info-row">
+          <h4 class="ship-item__info-params-name">Уровень:</h4>
+          <div class="ship-item__info-params-value">{{ ship.level }}</div>
+        </div>
+      </div>
     </div>
-    <div class="ship-item__info">
-      <h3 class="ship-item__info-params-value name">{{ ship.name }}</h3>
-
-      <div class="ship-item__info-row">
-        <h4 class="ship-item__info-params-name">Класс:</h4>
-        <div class="ship-item__info-params-value">{{ ship.type.name }}</div>
-      </div>
-      <div class="ship-item__info-row">
-        <h4 class="ship-item__info-params-name">Нация:</h4>
-        <div class="ship-item__info-params-value">{{ ship.nation.name }}</div>
-      </div>
-      <div class="ship-item__info-row">
-        <h4 class="ship-item__info-params-name">Уровень:</h4>
-        <div class="ship-item__info-params-value">{{ ship.level }}</div>
-      </div>
-      <!-- <div class="ship-item__info-row">
-        <h4 class="ship-item__info-params-name">Описание:</h4>
-        <div class="ship-item__info-params-value">{{ ship.description }}</div>
-      </div> -->
+    <div class="ship-item__description">
+      <!-- <h4 class="ship-item__description-name">Описание:</h4> -->
+      <div class="ship-item__description-value">{{ ship.description }}</div>
     </div>
   </li>
 </template>
@@ -43,12 +43,16 @@ console.log(props.ship)
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
   gap: 20px;
   border-radius: 10px;
   color: #333;
   text-align: left;
   cursor: pointer;
+}
+.ship-item__wrapper {
+  display: flex;
+  column-gap: 20px;
+  margin-bottom: 15px;
 }
 .ship-item__image-wrapper {
   padding: 5px;
@@ -74,12 +78,21 @@ console.log(props.ship)
   align-items: baseline;
 }
 .ship-item__info-row:not(:last-child) {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+.ship-item__description-value {
+  line-height: normal;
+}
+.ship-item__description-name {
+  margin-bottom: 10px;
 }
 .ship-item__info-params-name {
   min-width: 100px;
 }
 .ship-item__info-params-value {
   word-break: break-word;
+}
+.ship-item__info-params-value.name {
+  margin-bottom: 15px;
 }
 </style>

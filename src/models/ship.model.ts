@@ -4,13 +4,12 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
 
 type NumberRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
 
-type T = NumberRange<1, 11>
+export type T = NumberRange<1, 11>
 
 export interface IShip {
   id: string
-  name: string
-  title: string | null
-  description: 'L10nField'
+  title: string
+  description: string
   icons: {
     small: string
     large: string
@@ -18,15 +17,26 @@ export interface IShip {
   }
   level: T
   type: {
-    name: 'destroyer' | 'cruiser' | 'submarine' | 'battleship' | 'aircarrier'
-    title: string | null
+    title: 'Подводная лодка' | 'Эсминец' | 'Крейсер' | 'Линкор' | 'Авианосец'
     icons: {
       default: string
     }
   }
   nation: {
-    name: string
-    title: string | null
+    title:
+      | 'Япония'
+      | 'США'
+      | 'СССР'
+      | 'Германия'
+      | 'Великобритания'
+      | 'Франция'
+      | 'Пан-Азия'
+      | 'Италия'
+      | 'Содружество'
+      | 'Пан-Америка'
+      | 'Европа'
+      | 'Нидерланды'
+      | 'Испания'
     color: string
     icons: {
       small?: string | null
