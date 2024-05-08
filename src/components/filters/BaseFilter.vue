@@ -22,13 +22,15 @@ const updateSelect = (e: Event) => {
 </script>
 
 <template>
-  <label class="select">
-    <p class="select__title">{{ title }}</p>
-    <select @change="updateSelect" class="select__select" :id="id">
-      <option class="select__option" :value="title" selected disabled hidden>{{ title }}</option>
-      <option class="select__option" v-for="option in options" :value="option">{{ option }}</option>
-    </select>
-  </label>
+  <li class="select">
+    <label for="" class="select__label">
+      <p class="select__title">{{ title }}</p>
+      <select @change="updateSelect" class="select__select" :id="id">
+        <option class="select__option" :value="title" selected disabled hidden>{{ title }}</option>
+        <option class="select__option" v-for="option in options" :value="option">{{ option }}</option>
+      </select>
+    </label>
+  </li>
 </template>
 
 <style>

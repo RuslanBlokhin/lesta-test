@@ -9,7 +9,7 @@ defineProps<{
   <li class="ship-item">
     <div class="ship-item__wrapper">
       <div class="ship-item__image-wrapper">
-        <img :src="ship.icons.medium" alt="ship-image" class="ship-item__image" />
+        <img v-lazy="ship.icons.medium" alt="ship-image" class="ship-item__image" />
       </div>
       <div class="ship-item__info">
         <h3 class="ship-item__info-params-value name">{{ ship.title }}</h3>

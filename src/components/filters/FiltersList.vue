@@ -6,6 +6,7 @@ console.log(filtersData)
 </script>
 
 <template>
+  <h1 hidden>Мир кораблей</h1>
   <ul class="filters-list">
     <BaseFilter v-for="f in filtersData" :options="f.options" :id="f.id" :title="f.title" :name="f.name" :key="f.id" />
   </ul>

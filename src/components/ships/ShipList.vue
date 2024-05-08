@@ -29,7 +29,6 @@ onMounted(() => {
     <div v-if="isLoading" class="loader-wrapper">
       <div class="loader"></div>
     </div>
-    <!-- <CharDetails /> -->
   </div>
 </template>
 
@@ -62,17 +61,9 @@ onMounted(() => {
 }
 @media screen and (min-width: 1920px) {
   .ships-list {
-    /* width: 1800px; */
     max-width: none;
     grid-template-columns: repeat(3, 32%);
     justify-content: center;
   }
 }
-/* @media screen and (min-width: 1440px) {
-  .ships-list {
-    max-width: none;
-    grid-template-columns: repeat(4, 23%);
-    justify-content: center;
-  }
-} */
 </style>
