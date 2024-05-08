@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import ShipCard from './ShipCard.vue'
-import { onMounted, computed } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import { useShipsStore } from '../../stores/ships'
 
-// const isLoading = ref(false)
+const isLoading = ref(false)
 
 const store = useShipsStore()
 
-const ships = computed(() => store.ships)
+const ships = computed(() => store.filteredShips)
+// const isLoading = computed(() => store.isLoading)
 
 onMounted(() => {
-  store.isLoading = true
+  isLoading.value = true
   store.fetchAllShips().then(resp => {
     if (resp.error !== null) {
       alert(`Возникла ошибка: ${resp.message}`)
     }
   })
-  store.isLoading = false
+  isLoading.value = false
 })
 </script>
 
@@ -25,10 +26,10 @@ onMounted(() => {
     <ul v-if="ships" class="ships-list">
       <ShipCard v-for="item in ships" :ship="item" :key="item.id" />
     </ul>
+    <div v-if="isLoading" class="loader-wrapper">
+      <div class="loader"></div>
+    </div>
     <!-- <CharDetails /> -->
-  </div>
-  <div v-if="store.isLoading" class="loader-wrapper">
-    <div class="loader"></div>
   </div>
 </template>
 
@@ -53,17 +54,25 @@ onMounted(() => {
   margin: 20px auto 0;
 }
 @media screen and (min-width: 768px) {
-  .ships-list.sidebar-close {
+  .ships-list {
     max-width: 960px;
     grid-template-columns: repeat(2, 49%);
     justify-content: center;
   }
 }
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 1920px) {
   .ships-list {
-    max-width: 1047px;
-    grid-template-columns: repeat(2, 49%);
+    /* width: 1800px; */
+    max-width: none;
+    grid-template-columns: repeat(3, 32%);
     justify-content: center;
   }
 }
+/* @media screen and (min-width: 1440px) {
+  .ships-list {
+    max-width: none;
+    grid-template-columns: repeat(4, 23%);
+    justify-content: center;
+  }
+} */
 </style>

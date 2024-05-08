@@ -7,7 +7,7 @@ console.log(filtersData)
 
 <template>
   <ul class="filters-list">
-    <BaseFilter v-for="f in filtersData" :options="f.options" :name="f.name" :key="f.id" />
+    <BaseFilter v-for="f in filtersData" :options="f.options" :id="f.id" :title="f.title" :name="f.name" :key="f.id" />
   </ul>
 </template>
 
@@ -15,6 +15,8 @@ console.log(filtersData)
 .filters-list {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   column-gap: 10px;
 }
 </style>

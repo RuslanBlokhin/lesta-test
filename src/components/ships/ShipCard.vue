@@ -51,14 +51,14 @@ defineProps<{
 }
 .ship-item__wrapper {
   display: flex;
-  column-gap: 20px;
+  column-gap: 10px;
   margin-bottom: 15px;
 }
 .ship-item__image-wrapper {
   padding: 5px;
-  min-width: 200px;
-  width: 200px;
-  height: 130px;
+  min-width: 150px;
+  width: 150px;
+  height: 115px;
   border-radius: 10px;
   box-shadow: 0 0 4px -2px;
   background-color: white;
@@ -78,7 +78,7 @@ defineProps<{
   align-items: baseline;
 }
 .ship-item__info-row:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .ship-item__description-value {
   line-height: normal;
@@ -87,12 +87,31 @@ defineProps<{
   margin-bottom: 10px;
 }
 .ship-item__info-params-name {
-  min-width: 100px;
+  min-width: 60px;
 }
 .ship-item__info-params-value {
   word-break: break-word;
 }
 .ship-item__info-params-value.name {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 500px) {
+  .ship-item__wrapper {
+    column-gap: 20px;
+  }
+  .ship-item__image-wrapper {
+    min-width: 200px;
+    width: 200px;
+    height: 130px;
+  }
+  .ship-item__info-row:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .ship-item__info-params-name {
+    min-width: 100px;
+  }
+  .ship-item__info-params-value.name {
+    margin-bottom: 15px;
+  }
 }
 </style>

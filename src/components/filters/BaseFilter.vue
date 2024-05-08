@@ -1,27 +1,45 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useShipsStore } from '../../stores/ships'
+
+const store = useShipsStore()
 
 const selectedOption = ref('')
 
 defineProps({
-  name: String,
+  id: String,
+  title: String,
   options: Array,
 })
 
 const updateSelect = (e: Event) => {
-  selectedOption.value = (e.target as HTMLInputElement).value
+  const evntTarget = e.target as HTMLInputElement
+  const evntCurrTarget = e.currentTarget as HTMLInputElement
+  selectedOption.value = evntTarget.value
+
+  store.filterData(evntCurrTarget.id, evntTarget.value)
 }
 </script>
 
 <template>
-  <select @change="updateSelect" class="select">
-    <option class="select__option" :value="name" selected disabled hidden>{{ name }}</option>
-    <option class="select__option" v-for="option in options" :value="option">{{ option }}</option>
-  </select>
+  <label class="select">
+    <p class="select__title">{{ title }}</p>
+    <select @change="updateSelect" class="select__select" :id="id">
+      <option class="select__option" :value="title" selected disabled hidden>{{ title }}</option>
+      <option class="select__option" v-for="option in options" :value="option">{{ option }}</option>
+    </select>
+  </label>
 </template>
 
 <style>
-.select {
+.select__title {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  color: gray;
+  padding-left: 5px;
+}
+.select__select {
   height: 40px;
   padding: 6px;
   border: none;
@@ -31,7 +49,7 @@ const updateSelect = (e: Event) => {
   transition: border-color 0.25s;
   cursor: pointer;
 }
-.select:focus {
+.select__select:focus {
   border-color: #646cff;
 }
 .select option {

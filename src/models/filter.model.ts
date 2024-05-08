@@ -1,5 +1,6 @@
 export interface ISelect {
-  id: number
+  id: string
+  title: string
   name: string
   options: Array<string>
 }

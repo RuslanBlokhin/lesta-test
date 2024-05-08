@@ -23,6 +23,7 @@ body {
   min-height: 100vh;
   background-color: rgb(16, 32, 49);
   color: rgb(238, 238, 238);
+  overflow-x: hidden;
 }
 
 a {
@@ -73,20 +74,6 @@ input {
   margin: 0;
   outline: none;
   border: none;
-}
-
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px 10px;
-  font-size: 14px;
-}
-
-h1 {
-  margin: 15px 0;
-  font-family: 'SF Pro Display', sans-serif;
-  font-size: 18px;
-  line-height: 24px;
 }
 
 .loader-wrapper {
@@ -157,13 +144,26 @@ h1 {
   }
 }
 
+h1 {
+  margin: 15px 0;
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 100%;
     max-width: 960px;
     min-width: 728px;
     padding: 36px 20px;
-    font-size: 16px;
   }
   h1 {
     margin: 20px 0;
