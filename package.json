@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
-    "graphql": "^16.8.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-lazyload": "^3.0.0"

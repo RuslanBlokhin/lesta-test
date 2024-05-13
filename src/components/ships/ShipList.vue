@@ -8,7 +8,6 @@ const isLoading = ref(false)
 const store = useShipsStore()
 
 const ships = computed(() => store.filteredShips)
-// const isLoading = computed(() => store.isLoading)
 
 onMounted(() => {
   isLoading.value = true

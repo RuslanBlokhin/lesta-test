@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useShipsStore } from '../../stores/ships'
 
 const store = useShipsStore()
-
-const selectedOption = ref('')
 
 defineProps({
   id: String,
@@ -15,7 +12,6 @@ defineProps({
 const updateSelect = (e: Event) => {
   const evntTarget = e.target as HTMLInputElement
   const evntCurrTarget = e.currentTarget as HTMLInputElement
-  selectedOption.value = evntTarget.value
 
   store.filterData(evntCurrTarget.id, evntTarget.value)
 }
@@ -23,7 +19,7 @@ const updateSelect = (e: Event) => {
 
 <template>
   <li class="select">
-    <label for="" class="select__label">
+    <label class="select__label">
       <p class="select__title">{{ title }}</p>
       <select @change="updateSelect" class="select__select" :id="id">
         <option class="select__option" :value="title" selected disabled hidden>{{ title }}</option>

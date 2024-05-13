@@ -7,6 +7,8 @@ import VueLazyload from 'vue-lazyload'
 const pinia = createPinia()
 const app = createApp(App)
 
-app.use(VueLazyload)
+app.use(VueLazyload, {
+  loading: 'icons/battleship.svg',
+})
 app.use(pinia)
 app.mount('#app')

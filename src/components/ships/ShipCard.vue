@@ -28,7 +28,6 @@ defineProps<{
       </div>
     </div>
     <div class="ship-item__description">
-      <!-- <h4 class="ship-item__description-name">Описание:</h4> -->
       <div class="ship-item__description-value">{{ ship.description }}</div>
     </div>
   </li>
